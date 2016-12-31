@@ -1,34 +1,42 @@
 #include "ForkliftController.h"
 
+
+//Default constructor
 ForkliftController::ForkliftController()
 {
 }
 
 
+//Configureer de motor die de heftruck laat heffen en zakken
 void ForkliftController::initializeLiftMotor(int enablePin, int inputPin1, int inputPin2)
 {
+   //Maak een nieuw Motor object aan met de correcte pinnummers
    _liftMotor = Motor(enablePin, inputPin1, inputPin2);
 }
 
 
+//Configureer de motor die de heftruck links of rechts laat sturen
 void ForkliftController::initializeSteeringMotor(int enablePin, int inputPin1, int inputPin2)
 {
+  //Maak een nieuw Motor object aan met de correcte pinnummers
    _steeringMotor = Motor(enablePin, inputPin1, inputPin2);
 }
 
-
+//Configureer de motor die de heftruck vooruit en achteruit laat rijden
 void ForkliftController::initializeDriveMotor(int enablePin, int inputPin1, int inputPin2)
 {
+  //Maak een nieuw Motor object aan met de correcte pinnummers
    _driveMotor = Motor(enablePin, inputPin1, inputPin2);
 }
 
-
+//Configureer de motor die de mast van de heftruck vooruit of achteruit laat bewegen
 void ForkliftController::initializeMastTiltMotor(int enablePin, int inputPin1, int inputPin2)
 {
+  //Maak een nieuw Motor object aan met de correcte pinnummers
    _mastTiltMotor = Motor(enablePin, inputPin1, inputPin2);
 }
 
-
+//Verwerk het ontvangen commando
 void ForkliftController::processCommand(String command)
 {
    if (command.equals("steerstop"))
